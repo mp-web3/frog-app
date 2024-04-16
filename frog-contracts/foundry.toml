@@ -2,5 +2,13 @@
 src = "src"
 out = "out"
 libs = ["lib"]
+remappings = [
+    "@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/",
+    "contracts/=src/contracts/",
+    "script/=script/",
+    "foundry-devops/=lib/foundry-devops/",
+    "forge-std/=lib/forge-std/src/"
+]
+ffi = true #enables foundry to tun commands
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
