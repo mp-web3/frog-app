@@ -8,3 +8,9 @@ deploy-FrogJump-anvil:; forge script ./script/FrogJump.s.sol --rpc-url http://lo
 
 ### Deploy FrogJump.sol on Linea-Sepolia
 deploy-FrogJump-linea-sepolia:; forge script script/DeployFrogJump.s.sol --rpc-url $(SEPOLIA_LINEA_RPC_URL) --private-key $(PRIVATE_KEY_DEV_WALLET) --broadcast -vvvv
+
+### Verify a deployed contract
+verify-FrogJump-linea-sepolia:; forge verify-contract --etherscan-api-key $(LINEASCAN_API_KEY) --verifier-url https://api-testnet.lineascan.build/api $(CONTRACT_ADDRESS) src/FrogJump.sol:FrogJump --watch
+
+### Deploy and Verify FrogJump.sol on Linea-Sepolia - NOT WORKING
+deploy-and-verify-FrogJump-linea-sepolia:; forge script script/DeployFrogJump.s.sol:DeployFrogJumpScript --rpc-url $(SEPOLIA_LINEA_RPC_URL) --private-key $(PRIVATE_KEY_DEV_WALLET) --broadcast --verify --verifier-url https://api.lineascan.build/api --etherscan-api-key $(LINEASCAN_API_KEY) -vvvv

@@ -8,12 +8,12 @@ import { console } from "forge-std/console.sol";
 contract DeployFrogJumpScript is Script {
     
     function run() public {
-        vm.broadcast();
+        vm.startBroadcast();
         FrogJump frogJump = new FrogJump("Froggy");
-        vm.stopBroadcast();
 
         // Optionally log the address of the deployed contract
         console.log("Deployed FrogJump at:", address(frogJump));
+        vm.stopBroadcast();
     }
 
 }
