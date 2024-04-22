@@ -10,7 +10,42 @@ deploy-FrogJump-anvil:; forge script ./script/FrogJump.s.sol --rpc-url http://lo
 deploy-FrogJump-linea-sepolia:; forge script script/DeployFrogJump.s.sol --rpc-url $(SEPOLIA_LINEA_RPC_URL) --private-key $(PRIVATE_KEY_DEV_WALLET) --broadcast -vvvv
 
 ### Verify a deployed contract
-verify-FrogJump-linea-sepolia:; forge verify-contract --etherscan-api-key $(LINEASCAN_API_KEY) --verifier-url https://api-testnet.lineascan.build/api $(CONTRACT_ADDRESS) src/FrogJump.sol:FrogJump --watch
+verify-FrogJump-linea-sepolia:; forge verify-contract --etherscan-api-key $(LINEASCAN_API_KEY) --verifier-url $(LINEASCAN_SEPOLIA_API) $(CONTRACT_ADDRESS) src/FrogJump.sol:FrogJump --watch
 
 ### Deploy and Verify FrogJump.sol on Linea-Sepolia - NOT WORKING
 deploy-and-verify-FrogJump-linea-sepolia:; forge script script/DeployFrogJump.s.sol:DeployFrogJumpScript --rpc-url $(SEPOLIA_LINEA_RPC_URL) --private-key $(PRIVATE_KEY_DEV_WALLET) --broadcast --verify --verifier-url https://api.lineascan.build/api --etherscan-api-key $(LINEASCAN_API_KEY) -vvvv
+
+########################## PayFrogJump ################################
+
+### Deploy PayFrogJump.sol on Linea-Sepolia
+deploy-PayFrogJump-linea-sepolia:; forge script script/DeployPayFrogJump.s.sol --rpc-url $(SEPOLIA_LINEA_RPC_URL) --private-key $(PRIVATE_KEY_DEV_WALLET) --broadcast -vvvv
+
+### Call Name Function PayFrogJump.sol on Linea-Sepolia
+call-name-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "name()(string)" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
+
+### Call Jumps Function PayFrogJump.sol on Linea-Sepolia
+call-jumps-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "jumps()(uint)" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
+
+### Call balanceOf Function PayFrogJump.sol on Linea-Sepolia
+call-getEthBalance-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "getEthBalance(address)(uint256)" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
+
+### Call PRICE Function PayFrogJump.sol on Linea-Sepolia
+call-PRICE-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "PRICE()(uint256)" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
+
+### Send transaction function jump() PayFrogJump.sol on Linea-Sepolia
+send-jump-PayFrogJump-linea-sepolia:; cast send $(PAYFROGJUMP_CONTRACT_ADDRESS) "jump()()" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET) --value 0.0001ether --async
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
