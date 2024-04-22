@@ -4,6 +4,7 @@ import { IFrog } from "./FrogJump.sol";
 
 interface IPayableJumper {
     function jump() external payable;
+    function getEthBalance(address) external view returns (uint256);
 }
 
 contract PayFrogJump is IFrog, IPayableJumper{
@@ -18,5 +19,9 @@ contract PayFrogJump is IFrog, IPayableJumper{
 
     function jump() public payable {
         jumps += msg.value/PRICE;
+    }
+
+    function getEthBalance(address _address) external view returns (uint256) {
+        return _address.balance;
     }
 }

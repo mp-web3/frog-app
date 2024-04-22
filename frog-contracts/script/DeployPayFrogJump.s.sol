@@ -9,7 +9,7 @@ contract DeployPayFrogJumpScript is Script {
     
     function run() public {
         vm.startBroadcast();
-        PayFrogJump payFrogJump = new PayFrogJump("RichRicky");
+        PayFrogJump payFrogJump = new PayFrogJump("RichRickyV2");
 
         // Optionally log the address of the deployed contract
         console.log("Deployed FrogJump at:", address(payFrogJump));

@@ -27,13 +27,13 @@ call-name-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) 
 call-jumps-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "jumps()(uint)" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
 
 ### Call balanceOf Function PayFrogJump.sol on Linea-Sepolia
-call-getEthBalance-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "getEthBalance(address)(uint256)" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
+call-getEthBalance-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "getEthBalance(address)(uint256)" $(PAYFROGJUMP_CONTRACT_ADDRESS) --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
 
 ### Call PRICE Function PayFrogJump.sol on Linea-Sepolia
 call-PRICE-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "PRICE()(uint256)" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
 
 ### Send transaction function jump() PayFrogJump.sol on Linea-Sepolia
-send-jump-PayFrogJump-linea-sepolia:; cast send $(PAYFROGJUMP_CONTRACT_ADDRESS) "jump()()" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET) --value 0.0001ether --async
+send-jump-PayFrogJump-linea-sepolia:; cast send $(PAYFROGJUMP_CONTRACT_ADDRESS) "jump()()" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET) --value 0.0002ether --async
 
 
 
