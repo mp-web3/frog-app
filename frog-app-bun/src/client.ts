@@ -1,8 +1,8 @@
 import { createThirdwebClient, defineChain } from "thirdweb";
 
-
+// Client Server-Side
 export const client = createThirdwebClient({
-  clientId: "7a10bef013f39bbf3ee9edc7833fdc04",
+  secretKey: process.env.THIRDWEB_SECRET_KEY_FROG_APP,
 });
 
 export const lineaSepolia = defineChain({
