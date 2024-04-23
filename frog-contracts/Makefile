@@ -20,6 +20,9 @@ deploy-and-verify-FrogJump-linea-sepolia:; forge script script/DeployFrogJump.s.
 ### Deploy PayFrogJump.sol on Linea-Sepolia
 deploy-PayFrogJump-linea-sepolia:; forge script script/DeployPayFrogJump.s.sol --rpc-url $(SEPOLIA_LINEA_RPC_URL) --private-key $(PRIVATE_KEY_DEV_WALLET) --broadcast -vvvv
 
+### Verify a deployed contract
+verify-PayFrogJump-linea-sepolia:; forge verify-contract --etherscan-api-key $(LINEASCAN_API_KEY) --verifier-url $(LINEASCAN_SEPOLIA_API) $(PAYFROGJUMP_CONTRACT_ADDRESS) src/PayFrogJump.sol:PayFrogJump --watch
+
 ### Call Name Function PayFrogJump.sol on Linea-Sepolia
 call-name-PayFrogJump-linea-sepolia:; cast call $(PAYFROGJUMP_CONTRACT_ADDRESS) "name()(string)" --rpc-url $(SEPOLIA_LINEA_RPC_URL) --account $(ADDRESS_DEV_WALLET) --private-key $(PRIVATE_KEY_DEV_WALLET)
 
